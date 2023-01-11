@@ -166,3 +166,14 @@ type ExtractedType = Extract<"a" | "b" | "c", "a" | "f">;
 
 type NNType = NonNullable<string | number | undefined>;
 // type NNType = string | number;
+
+
+
+// #### ConstructorParameters<Type>
+// Constructs a tuple or array type from the types of a 
+// constructor function type. It produces a tuple type with 
+// all the parameter types (or the type never if Type is not 
+// a function).
+
+type ConsParamType = ConstructorParameters<ErrorConstructor>;
+// type ConsParamType = [message?: string | undefined;
