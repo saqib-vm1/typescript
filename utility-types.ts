@@ -170,7 +170,6 @@ type NNType = NonNullable<string | number | undefined>;
 
 
 
-<<<<<<< HEAD
 
 // ####  Parameters<Type>
 // Constructs a tuple type from the types used in the parameters
@@ -180,7 +179,6 @@ declare function f2(a: string, b: number): void;
 
 type ParametersTuple = Parameters<typeof f2>;
 // type ParametersTuple = [a: string, b: number];
-=======
 // #### ConstructorParameters<Type>
 // Constructs a tuple or array type from the types of a 
 // constructor function type. It produces a tuple type with 
@@ -189,4 +187,3 @@ type ParametersTuple = Parameters<typeof f2>;
 
 type ConsParamType = ConstructorParameters<ErrorConstructor>;
 // type ConsParamType = [message?: string | undefined;
->>>>>>> utility-types
