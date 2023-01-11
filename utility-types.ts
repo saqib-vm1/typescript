@@ -156,3 +156,14 @@ type ExcldedType2 = Exclude<string | number | boolean, boolean>
 
 type ExtractedType = Extract<"a" | "b" | "c", "a" | "f">;
 // type ExtractedType = "a"
+
+
+
+
+
+
+// #### NonNullable<Type>
+// Constructs a type by excluding 'null' and 'undefined' from 'Type'.
+
+type NNType = NonNullable<string | number | undefined>;
+// type NNType = string | number;
