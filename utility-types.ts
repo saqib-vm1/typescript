@@ -167,3 +167,15 @@ type ExtractedType = Extract<"a" | "b" | "c", "a" | "f">;
 
 type NNType = NonNullable<string | number | undefined>;
 // type NNType = string | number;
+
+
+
+
+// ####  Parameters<Type>
+// Constructs a tuple type from the types used in the parameters
+// of a function type Type.
+
+declare function f2(a: string, b: number): void;
+
+type ParametersTuple = Parameters<typeof f2>;
+// type ParametersTuple = [a: string, b: number];
