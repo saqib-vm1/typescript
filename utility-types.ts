@@ -13,6 +13,7 @@ type ReturnedType2 = ReturnType<() => string>
 
 
 
+
 // ####  Awaited<Type>
 type A = Awaited<Promise<string>>;
 const str: A = 'abc';
