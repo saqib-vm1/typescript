@@ -1,6 +1,19 @@
 // TypeScritpt provides several utility types to facilitate common type transformations. 
 // These utilities are available globally.
 
+// ####   ReturnType<Type>
+// Constructs a type consisting of the return type of function Type.
+
+declare function f1(): {a: number, b:string}
+type ReturnedType1 = ReturnType<typeof f1>;
+// type ReturnedType1 = {a: number; b: string;}
+
+type ReturnedType2 = ReturnType<() => string>
+// type ReturnedType2 = string;
+
+
+
+
 // ####  Awaited<Type>
 type A = Awaited<Promise<string>>;
 const str: A = 'abc';
