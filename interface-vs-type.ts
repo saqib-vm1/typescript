@@ -112,20 +112,71 @@ type type1 = {
 
 
 
+// =======================================================
+// ========== Index Signatures..
+
+
+type PersonType = {
+    name: string,
+    age: number
+}
+
+// this interface allows any keys of type 'string'.
+interface IndexSignature {
+    [key: string]: PersonType;
+}
+
+const persons: IndexSignature = {
+    'a': {name: 'p1', age: 10},
+    b: {name: 'p1', age: 10}
+}
 
 
 
+// ######   index signatures need to be used with some care
+// example below explains why..
+
+interface IndexSignature2 {
+    [x: string]: string
+}
+
+const personIS2: IndexSignature2 = {
+    name: 'abc'
+}
+
+const personName2 = personIS2.age;
+personName2.toUpperCase();
+// at above line Typescript doesn't gives an error for accessing methods on undefined properties..
+// This is because index signature simply maps a key type to value type.
+// To make typing more accurate, mark the indexed value as string or undefined. Doing so,
+// TypeScript becomes aware that the properties you access might not exist:
+// like " [x: string]: string | undefined "
 
 
+// ######  we cannot specify string literal keys to index signatures..
 
+// interface IndexSignature3 {
+//     [key: 'a' | 'b' | 'c']: number;
+// }
+// error: An index signature parameter type cannot be a literal type or generic type.
+// Consider using a mapped object type instead.
 
+// !!!! We can make use of 'Record<Keys, Type>' to specify literal string keys..
 
+const recordUtility: Record<'a' | 'b', number> = {
+    a: 1,
+    b: 2
+}
 
+///////////
 
+type catNames = "miffy" | "boris" | "mordred";
 
+interface CatInfo {
+    age: number, breed: string
+}
 
-
-
+type Cats = Record<catNames, CatInfo>;
 
 
 
